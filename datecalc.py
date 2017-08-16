@@ -1,6 +1,20 @@
 #This Code Calculates the number of possible date/Holy Day combinations in the Past/Future.
 #This does not find the exact holy days for a specific year.
 
+#Holy Days like Christmas and Epiphany have fixed dates and don't move from a calendar perspective.
+ 
+#There are Four Key Days for calculating the dates of each other Holy Day.
+#Both Thankgivings 
+    #These need to be calculated separately.
+#Sunday Before Dec 25th, 4th Advent
+    #4th Advent, as it is a sunday, can be used to calculate all holy days in the Advent/Christmas season. 
+#Baptism: 1st Sunday after Epiphany
+    #Baptism Sunday can be used to Calculate all Holy dates around
+#Easter: Between March 22 and Apr 25
+    #All other Holy Days can be calculated around Easter.
+
+
+
 from array import *
 import sys
 
@@ -23,11 +37,6 @@ for month in range(0,12):
         CountLeap = CountLeap+1
 
 
-#KeyDays
-#Sunday Before Dec 25th, 4th Advent
-#Sunday After Dec 25th
-#Baptism: 1st Sunday after Epiphany
-#Easter: Between March 22 and Apr 25
 Year = Normal
 Results = []
 IsLeap = False
