@@ -1,20 +1,6 @@
 #This Code Calculates the number of possible date/Holy Day combinations in the Past/Future.
 #This does not find the exact holy days for a specific year.
 
-#Holy Days like Christmas and Epiphany have fixed dates and don't move from a calendar perspective.
- 
-#There are Four Key Days for calculating the dates of each other Holy Day.
-#Both Thankgivings 
-    #These need to be calculated separately.
-#Sunday Before Dec 25th, 4th Advent
-    #4th Advent, as it is a sunday, can be used to calculate all holy days in the Advent/Christmas season. 
-#Baptism: 1st Sunday after Epiphany
-    #Baptism Sunday can be used to Calculate all Holy dates around
-#Easter: Between March 22 and Apr 25
-    #All other Holy Days can be calculated around Easter.
-
-
-
 from array import *
 import sys
 
@@ -36,6 +22,12 @@ for month in range(0,12):
         Leap[CountLeap] = MonthName[month] + "-" + str(day).zfill(2)
         CountLeap = CountLeap+1
 
+
+#KeyDays
+#Sunday Before Dec 25th, 4th Advent
+#Baptism: 1st Sunday after Epiphany
+#Easter: Between March 22 and Apr 25
+#Both Thanksgivings
 
 Year = Normal
 Results = []
@@ -59,6 +51,7 @@ for loop in range(0,1):
           IsLeap = True
         #Weekday Dependant
         FourthAdvent = Year[Year.index("Dec-25")-(weekday+1)]
+        Results.append(["Christ the King",Year[Year.index(FourthAdvent)-28]])
         Results.append(["1st Sunday of Advent",Year[Year.index(FourthAdvent)-21]])
         Results.append(["2nd Sunday of Advent",Year[Year.index(FourthAdvent)-14]])
         Results.append(["3rd Sunday of Advent",Year[Year.index(FourthAdvent)-7]])
@@ -138,7 +131,6 @@ for loop in range(0,1):
             Results.append(["Proper 26",Year[Year.index(Easter)+224]])
             Results.append(["Proper 27",Year[Year.index(Easter)+231]])
             Results.append(["Proper 28",Year[Year.index(Easter)+238]])
-            Results.append(["Christ the King",Year[Year.index(Easter)+245]])
             #print(str(offset)+ " Sunday After Christmas: " + Normal[SunAfterChristmas])
             #print(str(offset)+ " Sunday Before Christmas: " + Normal[SunBeforeChristmas])
     Year = Leap
